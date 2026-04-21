@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Service Platform</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="blob-bg"></div>
+    <div class="blob-bg blob-2"></div>
+    
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span class="icon">🏆</span>
+                <h1>Sports Service</h1>
+            </div>
+            <p class="subtitle">Microservice Architecture Dashboard</p>
+        </header>
+
+        <div class="dashboard">
+            <section class="glass-card add-team-section">
+                <h2>Register a Team</h2>
+                <form id="add-team-form">
+                    <div class="input-group">
+                        <label for="name">Team Name</label>
+                        <input type="text" id="name" placeholder="e.g., Lakers" required autocomplete="off">
+                    </div>
+                    <div class="input-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" placeholder="e.g., Los Angeles" required autocomplete="off">
+                    </div>
+                    <button type="submit" class="submit-btn" id="submit-btn">
+                        <span>Deploy to Database</span>
+                        <div class="loader hidden"></div>
+                    </button>
+                    <div id="status-message" class="status-message"></div>
+                </form>
+            </section>
+
+            <section class="glass-card teams-section">
+                <div class="section-header">
+                    <h2>Live Teams Roster</h2>
+                    <button id="refresh-btn" class="icon-btn">🔄</button>
+                </div>
+                <div class="teams-container">
+                    <table class="teams-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>City</th>
+                                <th>Name</th>
+                            </tr>
+                        </thead>
+                        <tbody id="teams-body">
+                            <!-- Data populated by JS -->
+                            <tr class="empty-state" id="initial-loading">
+                                <td colspan="3">Booting services & loading data...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+        
+        <footer>
+            <div class="status-indicator">
+                <span class="pulse"></span>
+                <span>System Online • Rust Backend • PostgreSQL</span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
